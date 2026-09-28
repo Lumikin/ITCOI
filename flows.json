@@ -1,0 +1,316 @@
+[
+    {
+        "id": "e81a8553bcb771bf",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bfeffa96a48439cd",
+        "type": "inject",
+        "z": "e81a8553bcb771bf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "senai",
+                "v": "true",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 300,
+        "y": 380,
+        "wires": [
+            [
+                "93953919317be551"
+            ]
+        ]
+    },
+    {
+        "id": "c92e23e5225c7afe",
+        "type": "debug",
+        "z": "e81a8553bcb771bf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "93953919317be551",
+        "type": "function",
+        "z": "e81a8553bcb771bf",
+        "name": "function 1",
+        "func": "msg.lucas = \"Ribeiro\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 380,
+        "wires": [
+            [
+                "c92e23e5225c7afe"
+            ]
+        ]
+    },
+    {
+        "id": "84ca455b2cc037a5",
+        "type": "ui-button",
+        "z": "e81a8553bcb771bf",
+        "group": "c79df79ccfe2f17e",
+        "name": "",
+        "label": "button",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 170,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9294e9b7a6dbca19",
+        "type": "ui-switch",
+        "z": "e81a8553bcb771bf",
+        "name": "BTN LED",
+        "label": "Liga/Desliga",
+        "group": "c79df79ccfe2f17e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 320,
+        "y": 540,
+        "wires": [
+            [
+                "7675d54e628d5811",
+                "734a3f54540a1c11"
+            ]
+        ]
+    },
+    {
+        "id": "7675d54e628d5811",
+        "type": "mqtt out",
+        "z": "e81a8553bcb771bf",
+        "name": "",
+        "topic": "/grupo01/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8a38710e6921f87",
+        "x": 510,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "734a3f54540a1c11",
+        "type": "debug",
+        "z": "e81a8553bcb771bf",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c79df79ccfe2f17e",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "4c28cf8d5d5b155b",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "d8a38710e6921f87",
+        "type": "mqtt-broker",
+        "name": "LocalSenai",
+        "broker": "192.168.0.113",
+        "port": "3026",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4c28cf8d5d5b155b",
+        "type": "ui-page",
+        "name": "LED",
+        "ui": "63d6a87846058665",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "7a639194982efb7d",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "63d6a87846058665",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "7a639194982efb7d",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "ce869ab278ed28bb",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.32.0"
+        }
+    }
+]
