@@ -1,0 +1,247 @@
+[
+    {
+        "id": "0d2fc557cef4d6e2",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ab57c7b17a56067d",
+        "type": "mqtt out",
+        "z": "0d2fc557cef4d6e2",
+        "name": "",
+        "topic": "/GRUPO01/lucas/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8a38710e6921f87",
+        "x": 500,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "0b16f4e280850377",
+        "type": "ui-switch",
+        "z": "0d2fc557cef4d6e2",
+        "name": "",
+        "label": "switch",
+        "group": "c79df79ccfe2f17e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "ab57c7b17a56067d"
+            ]
+        ]
+    },
+    {
+        "id": "ed098219c2b84be1",
+        "type": "ui-button",
+        "z": "0d2fc557cef4d6e2",
+        "group": "c79df79ccfe2f17e",
+        "name": "",
+        "label": "button",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "piscar",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "7066d0d4c39022c3"
+            ]
+        ]
+    },
+    {
+        "id": "7066d0d4c39022c3",
+        "type": "mqtt out",
+        "z": "0d2fc557cef4d6e2",
+        "name": "",
+        "topic": "/GRUPO01/lucas/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "d8a38710e6921f87",
+        "x": 480,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "d8a38710e6921f87",
+        "type": "mqtt-broker",
+        "name": "LocalSenai",
+        "broker": "192.168.0.109",
+        "port": "3026",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c79df79ccfe2f17e",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "4c28cf8d5d5b155b",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "4c28cf8d5d5b155b",
+        "type": "ui-page",
+        "name": "LED",
+        "ui": "63d6a87846058665",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "7a639194982efb7d",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "63d6a87846058665",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "7a639194982efb7d",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "9873f722b97f473b",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.32.0"
+        }
+    }
+]
