@@ -10,7 +10,7 @@ const char *password = "senai512";
 // =========================
 // MQTT
 // =========================
-const char *mqtt_server = "192.168.4.XXX";
+const char *mqtt_server = "192.168.0.109";
 const int mqtt_port = 3026;
 
 const char *mqtt_topic = "/GRUPO01/lucas/led";
@@ -18,7 +18,7 @@ const char *mqtt_topic = "/GRUPO01/lucas/led";
 // =========================
 // LED
 // =========================
-const int LED_PIN = 2;
+const int LED_PIN = 27;
 
 // =========================
 // Objetos
@@ -75,7 +75,19 @@ void callback(char *topic, byte *payload, unsigned int length)
     mensagem.trim();
 
     // Verifica o valor recebido
-    if (mensagem == "true")
+
+    if (mensagem == "piscar")
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            digitalWrite(LED_PIN, HIGH);
+            delay(500);
+            digitalWrite(LED_PIN, LOW);
+            Serial.println("Piscando vez " + String(i + 1));
+            delay(500);
+        }
+    }
+    else if (mensagem == "true")
     {
 
         digitalWrite(LED_PIN, HIGH);
